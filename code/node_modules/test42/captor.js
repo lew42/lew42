@@ -1,0 +1,1 @@
+module.exports = window.__test42_captor_parent || {};

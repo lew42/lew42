@@ -1,8 +1,4 @@
-@import "../normalize.css";
 @import "./lew42.less";
-body {
-	background: #555;
-}
 
 .r-sep {
 	border-right: 1px solid rgba(0,0,0,0.1);
@@ -54,11 +50,22 @@ body {
 	}
 }
 
-.var, .obj {
+.var, .obj, .arr {
 	.type, .class {
 		color: #666;
 	}
 	.name {
 		flex-grow: 1
+	}
+}
+
+.arr {
+	> .box {
+		> .bar {
+			> .bar, > .barBox {
+				flex-grow: 1;
+				padding: 0;
+			}
+		}
 	}
 }

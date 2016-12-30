@@ -1,6 +1,6 @@
-require("./styles.less"); // --> styles.css, via npm "extract-text-webpack-plugin"
+require("less42");
+require("../css/styles.less");
 require("lorem");
-require("./styles.less");
 var Router = require("route42/Route3/Router3");
 
 var view = require("view42");

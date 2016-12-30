@@ -3,3 +3,62 @@
 body {
 	background: #555;
 }
+
+.r-sep {
+	border-right: 1px solid rgba(0,0,0,0.1);
+}
+.l-sep {
+	border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sep {
+	.r-sep;
+	.l-sep;
+	&:last-child {
+		border-right: none;
+	}
+	&:first-child {
+		border-left: none;
+	}
+}
+
+.pad1 {
+	padding: 0.6em 0.75em 0.4em;	
+}
+
+.bar {
+	display: flex;
+	> .icon {
+		.pad1;
+	}
+	&, & > * {
+		background: rgba(0,0,0,0.05);
+	}
+	& > * {
+		.pad1;
+		.sep;
+	}
+}
+
+.box {
+	background: #eee;
+	padding: 0 0 0 0.75em;
+	font-size: 0.95em;
+}
+
+.barBox {
+	transition: all 0.3s;
+	margin: 0.5em 0;
+	&.collapsed {
+		margin: 0;
+	}
+}
+
+.var, .obj {
+	.type, .class {
+		color: #666;
+	}
+	.name {
+		flex-grow: 1
+	}
+}

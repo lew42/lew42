@@ -1,4 +1,3 @@
-require("less42");
 require("../css/styles.less");
 require("lorem");
 var Router = require("route42/Route3/Router3");

@@ -3,7 +3,7 @@ require("lorem");
 var Router = require("route42/Route3/Router3");
 
 var view = require("view42");
-var $ = require("jquery");
+var $ = window.$ = require("jquery");
 
 var test = require("test42");
 

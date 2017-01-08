@@ -10,6 +10,9 @@ var RouteView = View.extend({
 			this.append(route.part || "home");
 			View.Icon("angle-right");
 			this.addClass("flex");
+			this.click(function(){
+				route.activate();
+			});
 		});
 		View(function(){
 			this.route.each(function(route){
@@ -37,5 +40,10 @@ var AppView = module.exports = Cols.extend({
 		this.nav = RouteView({
 			route: this.app.route
 		}).addClass("nav");
+	},
+	right: function(){
+
 	}
 });
+
+AppView.Route = RouteView;

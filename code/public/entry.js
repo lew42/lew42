@@ -1,4 +1,4 @@
-require("../css/styles.less");
+// require("../css/styles.less");
 require("lorem");
 var Router = require("route42/Route3/Router3");
 
@@ -31,34 +31,34 @@ var app = view.x(function(){
 	this.route.add("hire")
 	this.route.add("me")
 
-	var home = Page1();
-	home.set_route(this.route);
+	// var home = Page1();
+	// home.set_route(this.route);
 
-	var pages = require.context("./", true, /\.page\.js$/);
-	var pageKeys = pages.keys();
-	var rt;
-	var rtp;
-	var route;
-	var page;
-	for (var i = 0; i < pageKeys.length; i++){
-		page = pages(pageKeys[i]);
-		// this.route.add()
-		if (page instanceof Page1){
-			console.log(pageKeys[i]);
-			rt = pageKeys[i].replace("./", "").replace(".page.js", "");
-			rtp = rt.split("/");
-			if (rtp[rtp.length - 1] === rtp[rtp.length - 2]){
-				rtp.pop();
-			}
+	// var pages = require.context("./", true, /\.page\.js$/);
+	// var pageKeys = pages.keys();
+	// var rt;
+	// var rtp;
+	// var route;
+	// var page;
+	// for (var i = 0; i < pageKeys.length; i++){
+	// 	page = pages(pageKeys[i]);
+	// 	// this.route.add()
+	// 	if (page instanceof Page1){
+	// 		console.log(pageKeys[i]);
+	// 		rt = pageKeys[i].replace("./", "").replace(".page.js", "");
+	// 		rtp = rt.split("/");
+	// 		if (rtp[rtp.length - 1] === rtp[rtp.length - 2]){
+	// 			rtp.pop();
+	// 		}
 
-			rtp = rtp.join("/");
-			console.log(rtp);
+	// 		rtp = rtp.join("/");
+	// 		console.log(rtp);
 
-			route = this.route.add(rtp);
-			route.page = page;
-			page.set_route(route);
-		}
-	}
+	// 		route = this.route.add(rtp);
+	// 		route.page = page;
+	// 		page.set_route(route);
+	// 	}
+	// }
 
 
 

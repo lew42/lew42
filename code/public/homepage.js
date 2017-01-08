@@ -1,8 +1,9 @@
 var Page = require("page42");
+var View = require("view42");
 
 var homepage = module.exports = Page({
 	name: "home",
-	render: function(){
-		console.log("homepage.render");
+	content: function(){
+		View("this is the homepage");
 	}
 });

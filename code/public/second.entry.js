@@ -35,7 +35,7 @@ var RouteView = View.extend({
 var app = App2({
 	name: "app",
 	home: homepage,
-	View: AppView,
+	// View: AppView,
 	init: function(){
 		this.loadPages(require.context("./", true, /\.page\.js$/));
 		this.loadTests(require.context("../", true, /\.tests\.js$/));

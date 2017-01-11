@@ -9,6 +9,21 @@ var TestPage = Page.extend({
 			this.route.parent.activate();
 		}.bind(this));
 		View.h1(this.name);
+
+		var route = this.route;
+		View(function(){
+			this.addClass("child-routes");
+			route.each(function(route){
+				View(function(){
+					this.addClass("flex test-item");
+					View(route.part);
+					View.Icon("angle-right");
+					this.click(function(){
+						route.activate();
+					});
+				});
+			});
+		});
 		// View("parent: " + this.parent.name);
 		Test.route = this.route;
 		this.route.remainder = this.route.reminder || [];
@@ -19,8 +34,10 @@ var TestPage = Page.extend({
 
 var fillSparseRoutes = function(route){
 	route.each(function(rt){
+		console.group(rt.name, rt.routes);
 		if (rt.routes.length){
 			if (!rt.page){
+				console.log("rt.name:", rt.name);
 				rt.page = Page({
 					app: rt.parent.page.app,
 					route: rt,
@@ -44,6 +61,7 @@ var fillSparseRoutes = function(route){
 			}
 			fillSparseRoutes(rt);
 		}
+		console.groupEnd(rt.name);
 	});
 };
 

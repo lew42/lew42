@@ -42,7 +42,7 @@ var app = App2({
 		this.loadPages(require.context("./", true, /\.page\.js$/), "page");
 		// this.loadTests(require.context("../", true, /\.tests\.js$/));
 		// this.logger();
-		// this.route.logger();
+		this.route.logger();
 	},
 	content: function(){
 		// this.nav = RouteView({
@@ -55,5 +55,18 @@ var app = App2({
 		View("test").addClass("nav-item").click(function(){
 			this.test.activate();
 		}.bind(this));
+
+		var app = this;
+		View("grids").addClass("nav-item").click(function(){
+			app.test.view1.grid.route.activate();
+		});
+
+		View("typography").addClass("nav-item").click(function(){
+			app.test.view1.typography.route.activate();
+		});
+
+		View("theme").addClass("nav-item").click(function(){
+			app.test.view1.sandbox.route.activate();
+		});
 	}
 });

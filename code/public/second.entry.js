@@ -3,6 +3,8 @@ var App2 = require("app42/App2");
 var View = require("view42");
 var Cols = require("grid").Cols;
 
+require("../css/styles.less");
+
 var $ = window.$ = require("jquery");
 
 var homepage = require("./homepage");
@@ -46,11 +48,11 @@ var app = App2({
 		// this.nav = RouteView({
 		// 	route: this.route
 		// }).addClass("nav");
-		View("home").click(function(){
+		View("home").addClass("nav-item").click(function(){
 			this.home.activate();
 		}.bind(this));
 
-		View("test").click(function(){
+		View("test").addClass("nav-item").click(function(){
 			this.test.activate();
 		}.bind(this));
 	}

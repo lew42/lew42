@@ -31,7 +31,7 @@ var fillSparseRoutes = function(route){
 						View.h1(this.name);
 						this.route.each(function(route){
 							View(function(){
-								this.addClass("flex");
+								this.addClass("flex test-item");
 								View(route.part);
 								View.Icon("angle-right");
 								this.click(function(){
@@ -59,11 +59,12 @@ var testPage = module.exports = Page({
 		View("Back").click(function(){
 			this.route.parent.activate();
 		}.bind(this));
+		this.addClass("test");
 		var testPage = this;
 		View.h1("test/");
 		this.route.each(function(route){
 			View(function(){
-				this.addClass("flex " + route.part);
+				this.addClass("flex test-item " + route.part);
 				View(route.part);
 				View.Icon("angle-right");
 				this.click(function(){

@@ -3,7 +3,7 @@
 ## Usage
 
 ```
-git clone
+git clone https://github.com/lew42/lew42.git
 npm i
 npm run server
 ```

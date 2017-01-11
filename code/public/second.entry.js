@@ -37,8 +37,8 @@ var app = App2({
 	home: homepage,
 	// View: AppView,
 	init: function(){
-		this.loadPages(require.context("./", true, /\.page\.js$/));
-		this.loadTests(require.context("../", true, /\.tests\.js$/));
+		this.loadPages(require.context("./", true, /\.page\.js$/), "page");
+		// this.loadTests(require.context("../", true, /\.tests\.js$/));
 		// this.logger();
 		// this.route.logger();
 	},

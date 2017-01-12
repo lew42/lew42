@@ -48,25 +48,32 @@ var app = App2({
 		// this.nav = RouteView({
 		// 	route: this.route
 		// }).addClass("nav");
-		View("home").addClass("nav-item").click(function(){
-			this.home.activate();
-		}.bind(this));
-
-		View("test").addClass("nav-item").click(function(){
-			this.test.activate();
-		}.bind(this));
-
 		var app = this;
-		View("grids").addClass("nav-item").click(function(){
-			app.test.view1.grid.route.activate();
+		View.Bar({
+			tag: "header",
+			addClass: "main",
+			content: function(){
+				View("LEW42");
+				View("home").click(function(){
+					app.home.activate();
+				}.bind(this));
+				View("test").click(function(){
+					app.test.activate();
+				}.bind(this));
+
+				View("grids").click(function(){
+					app.test.view1.grid.route.activate();
+				});
+
+				View("typography").click(function(){
+					app.test.view1.typography.route.activate();
+				});
+
+				View("theme").click(function(){
+					app.test.view1.sandbox.route.activate();
+				});
+			}
 		});
 
-		View("typography").addClass("nav-item").click(function(){
-			app.test.view1.typography.route.activate();
-		});
-
-		View("theme").addClass("nav-item").click(function(){
-			app.test.view1.sandbox.route.activate();
-		});
 	}
 });

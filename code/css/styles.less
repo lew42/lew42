@@ -1,5 +1,4 @@
 // @import "~less42/base";
-@import "./lew42.less";
 
 .r-sep {
 	border-right: 1px solid rgba(0,0,0,0.1);
@@ -33,7 +32,9 @@
 	}
 	& > * {
 		.pad1;
-		.sep;
+	}
+	> .icon {
+		.sep
 	}
 }
 
@@ -71,3 +72,4 @@
 	}
 }
 
+@import "./lew42.less";

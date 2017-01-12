@@ -209,9 +209,28 @@ p {
 }
 
 .page {
-	padding: 1em;
+	padding: 3px;
+}
+
+.app.page {
+	padding: 0;
 }
 
 .test .page {
 	background: #eee;
+}
+
+.mod5View {
+	font-size: 0.8em;
+	> .bar {
+		> .name {}
+		> .class { flex: 1; .r-sep; padding-left: 0; font-style: italic; color: #777;}
+		> .id { .sep; }
+	}
+}
+
+.propView {
+	> .name {
+		flex: 1;
+	}
 }

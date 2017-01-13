@@ -42,7 +42,7 @@ var app = App2({
 		this.loadPages(require.context("./", true, /\.page\.js$/), "page");
 		// this.loadTests(require.context("../", true, /\.tests\.js$/));
 		// this.logger();
-		this.route.logger();
+		// this.route.logger();
 	},
 	content: function(){
 		// this.nav = RouteView({

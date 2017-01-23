@@ -4,6 +4,9 @@ var View = require("view42");
 var homepage = module.exports = Page({
 	name: "home",
 	content: function(){
-		View("this is the homepage");
+		var app = this.app;
+		View("layouts1").click(function(){
+			app.layouts1.activate();
+		});
 	}
 });

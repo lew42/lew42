@@ -3,6 +3,8 @@ var App2 = require("app42/App2");
 var View = require("view42");
 var Cols = require("grid").Cols;
 
+// require("less42"); // if you want better control over order - don't just suck it all in at once...
+// we can @import it in pieces, within styles.less
 require("../css/styles.less");
 
 var $ = window.$ = require("jquery");

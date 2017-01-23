@@ -1,80 +1,10 @@
-/* styles.less 
+/* styles.less */
 
 @import "~less42/base.less";
-	// normalize, basic typography, mixins, and very basic helper classes
+@import "~less42/old.less";
 
-@import "./local.less"
-	// base overrides, custom typography, mixins, etc
+@import "theme.less";
 
-
-
-There's really very little that should be defined outside of actual components...
-
-All layouts are just components... (grids, etc)
-
-
- */
-
-@import "~less42/base.less";
-
-// @import "local.less";
-
-// @import "~less42/overrides.less";
- 
-@import "~less42/sep.less";
-
-.pad1 {
-	padding: 0.6em 0.75em 0.4em;	
-}
-
-.bar {
-	display: flex;
-	> .icon {
-		.pad1;
-	}
-	&, & > * {
-		background: rgba(0,0,0,0.05);
-	}
-	& > * {
-		.pad1;
-	}
-	> .icon {
-		.sep
-	}
-}
-
-.box {
-	background: #eee;
-	padding: 0 0 0 0.75em;
-	font-size: 0.95em;
-}
-
-.barBox {
-	transition: all 0.3s;
-	margin: 0.5em 0;
-	&.collapsed {
-		margin: 0;
-	}
-}
-
-.var, .obj, .arr {
-	.type, .class {
-		color: #666;
-	}
-	.name {
-		flex-grow: 1
-	}
-}
-
-.arr {
-	> .box {
-		> .bar {
-			> .bar, > .barBox {
-				flex-grow: 1;
-				padding: 0;
-			}
-		}
-	}
-}
+@import "~less42/overrides.less";
 
 @import "./lew42.less";

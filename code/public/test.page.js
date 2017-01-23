@@ -26,7 +26,8 @@ var TestPage = Page.extend({
 		});
 		// View("parent: " + this.parent.name);
 		Test.route = this.route;
-		this.route.remainder = this.route.reminder || [];
+		this.route.remainder = this.route.remainder || [];
+		// console.log("TestPage.remainder", this.route.remainder, this.route);
 		this.req(this.key);
 	}
 });
@@ -34,10 +35,10 @@ var TestPage = Page.extend({
 
 var fillSparseRoutes = function(route){
 	route.each(function(rt){
-		console.group(rt.name, rt.routes);
+		// console.group(rt.name, rt.routes);
 		if (rt.routes.length){
 			if (!rt.page){
-				console.log("rt.name:", rt.name);
+				// console.log("rt.name:", rt.name);
 				rt.page = Page({
 					app: rt.parent.page.app,
 					route: rt,
@@ -61,7 +62,7 @@ var fillSparseRoutes = function(route){
 			}
 			fillSparseRoutes(rt);
 		}
-		console.groupEnd(rt.name);
+		// console.groupEnd(rt.name);
 	});
 };
 

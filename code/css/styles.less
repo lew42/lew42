@@ -1,22 +1,27 @@
-// @import "~less42/base";
+/* styles.less 
 
-.r-sep {
-	border-right: 1px solid rgba(0,0,0,0.1);
-}
-.l-sep {
-	border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
+@import "~less42/base.less";
+	// normalize, basic typography, mixins, and very basic helper classes
 
-.sep {
-	.r-sep;
-	.l-sep;
-	&:last-child {
-		border-right: none;
-	}
-	&:first-child {
-		border-left: none;
-	}
-}
+@import "./local.less"
+	// base overrides, custom typography, mixins, etc
+
+
+
+There's really very little that should be defined outside of actual components...
+
+All layouts are just components... (grids, etc)
+
+
+ */
+
+@import "~less42/base.less";
+
+// @import "local.less";
+
+// @import "~less42/overrides.less";
+ 
+@import "~less42/sep.less";
 
 .pad1 {
 	padding: 0.6em 0.75em 0.4em;	

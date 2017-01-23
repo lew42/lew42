@@ -1,0 +1,19 @@
+@import (reference) "~less42/base.less";
+
+.layout-test-page {
+	background: #eee;
+	padding: 3em 0;
+
+	.layoutTest {
+		background: white;
+		margin: 1em;
+	}
+
+	.grid {
+		> * {
+			padding: 1em;
+			.bga-dark(0.1);
+			.sep;
+		}
+	}
+}

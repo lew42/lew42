@@ -12,38 +12,6 @@ module.exports = Page(function(){
 
 	LayoutTest(function(){
 		var grid;
-		View.h3(".grid.spaced").click(function(){
-			grid.toggleClass("break");
-		});
-		View("add").click(function(){
-			grid.item("item");
-		});
-		View("large").click(function(){
-			grid.toggleClass("large");
-		});
-		grid = View(function(){
-			this.addClass("grid spaced pc");
-
-			this.item = function(name){
-				View(name).click(function(){
-					this.remove();
-				}).appendTo(grid);
-			};
-
-			View("left");
-			View("center");
-			View("right");
-
-			this.item("item");
-			this.item("item");
-			this.item("item");
-			this.item("item");
-			this.item("item");
-		});
-	});
-
-	LayoutTest(function(){
-		var grid;
 		View.h3(".grid.spaced");
 
 		View(function(){
@@ -81,7 +49,7 @@ module.exports = Page(function(){
 			});
 		});
 		grid = View(function(){
-			this.addClass("grid spaced pc");
+			this.addClass("grid spaced pad-c");
 
 			this.item = function(name){
 				View(name).click(function(){
@@ -98,6 +66,20 @@ module.exports = Page(function(){
 			this.item("item");
 			this.item("item");
 			this.item("item");
+		});
+	});
+
+	LayoutTest(function(){
+		this.addClass("");
+		View.h3(".pad > .full")
+		View(function(){
+			this.addClass("pad");
+			View.p().filler('2s');
+			View(function(){
+				this.addClass("full pad style-1");
+				View.p().filler("2s");
+			});
+				View.p().filler("2s");
 		});
 	});
 });

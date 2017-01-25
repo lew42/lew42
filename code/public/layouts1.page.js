@@ -16,7 +16,7 @@ module.exports = Page(function(){
 			grid.toggleClass("break");
 		});
 		grid = View(function(){
-			this.addClass("grid pc");
+			this.addClass("grid pad-c");
 			View("left");
 			View("right");
 		})
@@ -31,7 +31,7 @@ module.exports = Page(function(){
 			grid.item("item");
 		});
 		grid = View(function(){
-			this.addClass("grid three pc");
+			this.addClass("grid three pad-c");
 
 			this.item = function(name){
 				View(name).click(function(){
@@ -59,7 +59,7 @@ module.exports = Page(function(){
 			grid.item("item");
 		});
 		grid = View(function(){
-			this.addClass("grid four pc");
+			this.addClass("grid four pad-c");
 
 			this.item = function(name){
 				View(name).click(function(){
@@ -86,7 +86,7 @@ module.exports = Page(function(){
 			grid.toggleClass("break");
 		});
 		grid = View(function(){
-			this.addClass("grid pc");
+			this.addClass("grid pad-c");
 			View("left").addClass("third");
 			View("right").addClass("thirds");
 		});
@@ -98,7 +98,7 @@ module.exports = Page(function(){
 			grid.toggleClass("break");
 		});
 		grid = View(function(){
-			this.addClass("grid pc");
+			this.addClass("grid pad-c");
 			View("left").addClass("thirds");
 			View("right").addClass("third");
 		});
@@ -111,11 +111,11 @@ module.exports = Page(function(){
 			grid.toggleClass("break");
 		});
 		grid = View(function(){
-			this.addClass("grid pc");
+			this.addClass("grid pad-c");
 			// View(function(){
 			// 	this.addClass("no-pad")
 				View(function(){
-					this.addClass("grid np pc").click(function(){
+					this.addClass("grid no-pad pad-c").click(function(){
 						this.toggleClass("break");
 					}.bind(this));
 					View("left").addClass("third");

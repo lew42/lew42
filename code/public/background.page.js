@@ -129,6 +129,29 @@ module.exports = Page(function(){
 
 
 		View(function(){
+			this.addClass("grid three grid-with-items-2");
+
+			View(function(){
+				View(function(){
+					View.h1("Add Item");
+					View.p().filler("1-3s");
+				});
+			}).click(function(){
+				Item().appendTo(this.$el);
+			}.bind(this));
+			var Item = View.extend(function(){
+				View(function(){
+					View.h1("Item");
+					View.p().filler("1-3s");
+				});
+			});
+
+			Item.make(11);
+
+		});
+
+
+		View(function(){
 			this.addClass("paper large");
 			View.h1("squeeze-test-3: padding on parent");
 			View.p().filler("4s");

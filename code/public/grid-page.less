@@ -1,0 +1,26 @@
+@import (reference) "background.less";
+
+.grid-page {
+	padding: 2rem 0;
+
+	.grid-2 .paper, .cols-2 .paper {
+		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5);
+		min-height: 1em;
+		min-width: 15em;
+		max-width: 30em;
+	}
+
+	.switches {
+		display: flex;
+
+		.switch {
+				background: #eee;
+			padding: 2px 4px;
+			margin-right: 3px;
+
+			&.active {
+				background: #aaa;
+			}
+		}
+	}
+}

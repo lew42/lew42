@@ -63,6 +63,10 @@ var app = App2({
 					app.test.activate();
 				}.bind(this));
 
+				View("tools").click(function(){
+					app.tools.activate();
+				});
+
 				View("grids").click(function(){
 					app.test.view1.grid.route.activate();
 				});

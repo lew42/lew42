@@ -1,13 +1,47 @@
 @import (reference) "background.less";
 
+.bef(@width){
+	content: "";
+	display: block;
+	width: @width;
+	height: 6px;
+	// margin-left: -1em;
+	background: blue;
+	position:absolute;
+}
+
 .grid-page {
 	padding: 2rem 0;
 
-	.grid-2 .paper, .cols-2 .paper {
-		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5);
+	.grid-2 > *, .cols-2 > * {
+		// box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5);
+		border:1px solid gray;
 		min-height: 1em;
 		min-width: 15em;
-		max-width: 30em;
+		&:before {
+			.bef(15em);
+		}		
+		// &:after {
+		// 	content: "";
+		// 	display: block;
+		// 	width: 30em;
+		// 	height: 6px;
+		// 	margin-left: -1em;
+		// 	background: red; 
+		// }
+
+		&.min-10 {
+			min-width:10em;
+			&:before {
+				.bef(10em);
+			}
+		}
+		&.min-20 {
+			min-width:20em;
+			&:before {
+				.bef(20em);
+			}
+		}
 	}
 
 	.switches {

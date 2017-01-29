@@ -66,37 +66,42 @@ var PaperTpl = Paper.extend(function(){
 var Cols = Section.extend({
 	name: "Cols",
 	addClass: "cols-2",
-	make: function(n){
+	make: function(n, arg){
 		for (var i = 0; i < n; i++){
-			this.addItem();
+			this.addItem(arg);
 		}
 	},
 	main: function(){
 		this.removeClass("cols");
 
-		this.switches = Switches({
-			subject: this,
-			switches: [
-				Switch({ name: "one", removals: "two three four" }),
-				Switch({ name: "two", removals: "one three four" }),
-				Switch({ name: "three", removals: "one two four" }),
-				Switch({ name: "four", removals: "one two three" }),
+		if (this.doSwitches){
 
-				Switch({ name: "limit" }),
-				Switch({ name: "break" }),
-			]
-		});
+			this.switches = Switches({
+				subject: this,
+				switches: [
+					Switch({ name: "one", removals: "two three four" }),
+					Switch({ name: "two", removals: "one three four" }),
+					Switch({ name: "three", removals: "one two four" }),
+					Switch({ name: "four", removals: "one two three" }),
 
-		this.switches.$el.insertBefore(this.$el);
+					Switch({ name: "limit" }),
+					Switch({ name: "break" }),
+				]
+			});
 
-		View("add").addClass("switch").click(function(){
-			this.addItem();
-		}.bind(this)).prependTo(this.switches.$el)
+			this.switches.$el.insertBefore(this.$el);
+
+			View("add").addClass("switch").click(function(){
+				this.addItem();
+			}.bind(this)).prependTo(this.switches.$el)
+		}
 
 		this.content();
 	},
-	addItem: function(){
-		var item = PaperTpl().appendTo(this.$el);
+	addItem: function(arg){
+		var item = View(arg, function(){
+			PaperTpl();
+		}).appendTo(this.$el);
 		item.click(function(){
 			item.remove();
 		});
@@ -107,9 +112,9 @@ var Grid = Section.extend({
 	name: "Grid",
 	addClass: "grid-2 naked",
 	removeClass: "grid",
-	make: function(n){
+	make: function(n, arg){
 		for (var i = 0; i < n; i++){
-			this.addItem();
+			this.addItem(arg);
 		}
 	},
 	main: function(){
@@ -137,8 +142,8 @@ var Grid = Section.extend({
 
 		this.content();
 	},
-	addItem: function(){
-		var item = PaperTpl().appendTo(this.$el);
+	addItem: function(arg){
+		var item = PaperTpl(arg).appendTo(this.$el);
 		item.click(function(){
 			item.remove();
 		});
@@ -152,8 +157,11 @@ module.exports = Page(function(){
 		this.addClass("global-squeeze paper");
 
 		View.h1("Cols");
-		Cols(function(){
-			this.make(5);
+		Cols({
+				doSwitches: true
+			},
+			function(){
+				this.make(5);
 		});
 
 		View.h1(".grid-2.naked");
@@ -161,6 +169,22 @@ module.exports = Page(function(){
 		Grid(function(){
 			// this.addClass("global-squeeze");
 			this.make(5);
+		});
+
+
+		View.h1(".cols-2 nested");
+
+		Cols(function(){
+			Cols(function(){
+				this.make(2, {
+					addClass: "min-10"
+				});
+			});
+			Cols(function(){
+				this.make(2, {
+					addClass: "min-20"
+				});
+			});
 		});
 		
 	});

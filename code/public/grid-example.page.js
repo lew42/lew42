@@ -163,36 +163,36 @@ var Grid3 = Section.extend({
 
 		// if (this.doSwitches){
 
-			this.switches = Switches({
-				subject: this,
-				switches: [
-					Switch({ name: "gutters" }),
-					Switch({ name: "minc-10", removals: "minc-15 minc-20 minc-30" }),
-					Switch({ name: "minc-15", removals: "minc-10 minc-20 minc-30" }),
-					Switch({ name: "minc-20", removals: "minc-15 minc-10 minc-30" }),
-					Switch({ name: "minc-30", removals: "minc-15 minc-10 minc-20" }),
-					Switch({ name: "basis2", removals: "basis3 basis4" }),
-					Switch({ name: "basis3", removals: "basis4 basis2" }),
-					Switch({ name: "basis4", removals: "basis3 basis2" }),
-					Switch({ name: "jc-center" }),
-					Switch({ name: "ai-start" }),
-					Switch({ name: "ac-start" }),
-					Switch({ name: "maxc-45" }),
-					Switch({ name: "flex-2" }),
-					Switch({ name: "flex-3" }),
-					// Switch({ name: "three", removals: "one two four" }),
-					// Switch({ name: "four", removals: "one two three" }),
+			// this.switches = Switches({
+			// 	subject: this,
+			// 	switches: [
+			// 		Switch({ name: "gutters" }),
+			// 		Switch({ name: "minc-10", removals: "minc-15 minc-20 minc-30" }),
+			// 		Switch({ name: "minc-15", removals: "minc-10 minc-20 minc-30" }),
+			// 		Switch({ name: "minc-20", removals: "minc-15 minc-10 minc-30" }),
+			// 		Switch({ name: "minc-30", removals: "minc-15 minc-10 minc-20" }),
+			// 		Switch({ name: "basis2", removals: "basis3 basis4" }),
+			// 		Switch({ name: "basis3", removals: "basis4 basis2" }),
+			// 		Switch({ name: "basis4", removals: "basis3 basis2" }),
+			// 		Switch({ name: "jc-center" }),
+			// 		Switch({ name: "ai-start" }),
+			// 		Switch({ name: "ac-start" }),
+			// 		Switch({ name: "maxc-45" }),
+			// 		Switch({ name: "flex-2" }),
+			// 		Switch({ name: "flex-3" }),
+			// 		// Switch({ name: "three", removals: "one two four" }),
+			// 		// Switch({ name: "four", removals: "one two three" }),
 
-					// Switch({ name: "limit" }),
-					// Switch({ name: "break" }),
-				]
-			});
+			// 		// Switch({ name: "limit" }),
+			// 		// Switch({ name: "break" }),
+			// 	]
+			// });
 
-			this.switches.$el.prependTo(this.$el);
+			// this.switches.$el.prependTo(this.$el);
 
-			View("add").addClass("switch").click(function(){
-				this.addItem();
-			}.bind(this)).prependTo(this.switches.$el)
+			// View("add").addClass("switch").click(function(){
+			// 	this.addItem();
+			// }.bind(this)).prependTo(this.switches.$el)
 		// }
 
 		this.content();
@@ -203,86 +203,40 @@ var Grid3 = Section.extend({
 				function(){ View.h1().filler("1s"); View.p().filler("2-4s"); }
 			).appendTo(this.$el);
 		// }).appendTo(this.$el);
-		item.click(function(){
-			item.remove();
-		});
 	}
 });
 
 module.exports = Page(function(){
-	this.addClass("grid-page stack-c-2rem").removeClass("grid");
+	this.addClass("grid-example-page stack-c-2rem").removeClass("grid");
 
 
 	Section(function(){
 		this.addClass("global-squeeze-42 paper");
 
-		View.h1(".grid-3")
+		View.h1("v1")
 
 		Grid3(function(){
 			this.addClass("stack-4rem");
-			this.make(3);
+			this.addClass("minc-20 gutters maxc-45 jc-center")
+			this.make(4);
 		});
-		
-		// View.h1(".grid-3 nested 1")
 
-		// Grid3(function(){
-		// 	this.addClass("stack-4rem")
-		// 	Grid3(function(){
-		// 		this.make(2);
-		// 	});
-		// 	this.addItem();
-		// });
-
-		View.h1(".grid-3 nested 2")
+		View.h1("v2")
 
 		// View(function(){
 		// 	this.addClass("shaded-bg");
 			Grid3(function(){
-				this.addClass("stack-4rem")
+				this.addClass("stack-4rem gutters")
 				Grid3(function(){
-					this.make(2);
+					this.addClass("minc-20 gutters")
+					this.make(1);
 				});
 				Grid3(function(){
-					this.make(2);
+					this.addClass("minc-20 gutters maxc-45 flex-3")
+					this.make(3);
 				});
 			});
 		// });
 	});
-
-	// Section(function(){
-	// 	this.addClass("global-squeeze paper");
-
-	// 	View.h1("Cols");
-	// 	Cols({
-	// 			doSwitches: true
-	// 		},
-	// 		function(){
-	// 			this.make(5);
-	// 	});
-
-	// 	View.h1(".grid-2.naked");
-
-	// 	Grid(function(){
-	// 		// this.addClass("global-squeeze");
-	// 		this.make(5);
-	// 	});
-
-
-	// 	View.h1(".cols-2 nested");
-
-	// 	Cols(function(){
-	// 		Cols(function(){
-	// 			this.make(2, {
-	// 				addClass: "min-10"
-	// 			});
-	// 		});
-	// 		Cols(function(){
-	// 			this.make(2, {
-	// 				addClass: "min-20"
-	// 			});
-	// 		});
-	// 	});
-		
-	// });
 
 });

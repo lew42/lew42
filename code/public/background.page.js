@@ -17,14 +17,26 @@ var Paper = View.extend({
 	name: "Paper"
 })
 
+var logo = require("./lew.logo.svg.str.js");
+
+var $ = require("jquery");
+
 module.exports = Page(function(){
 	this.addClass("background-page stack-c-2rem")
 	View(function(){}).addClass("inner global-squeeze");
 
 	Section(function(){
 		this.addClass("s-15 squeeze-c");
-
-
+		this.click(function(){
+			this.toggleClass("flip")
+		}.bind(this));
+		var $logo = $(logo);
+		View(function(){
+			this.addClass("logo-wrap")
+			View(function(){}).addClass("inner-bg");
+			this.append($logo);
+			
+		});
 	});
 
 	Section(function(){

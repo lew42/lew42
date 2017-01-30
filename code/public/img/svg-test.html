@@ -1,11 +1,45 @@
-<!doctype html>
-<html id="html">
+<html>
 <head>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<style>
+		body {
+			background-color: #000;
+			background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+		}
+
+		.one .l {
+			fill: #ff9d00;
+		}
+		.one .e {
+			fill: #ff6b00;
+		}
+		.one .w {
+			fill: #ff3700;
+		}
+
+		.two .l {
+			fill: #ff3700;
+		}
+		.two .e {
+			fill: #ff6b00;
+		}
+		.two .w {
+			fill: #ff9d00;
+		}
+
+		.three {
+			fill: #aaa;
+		}
+	</style>
 </head>
 <body>
+	<svg viewBox="0 0 446 260">
+	  <use xlink:href="lew.svg#lewlogo"></use>
+	</svg>
+	<svg viewBox="0 0 446 260">
+	  <use xlink:href="#lewlogo"></use>
+	</svg>
+	<img src="lew.svg" />
+	<object data="lew.svg" type="image/svg+xml"></object>
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="50 50 355 165">
 	  
 	  <defs xmlns="http://www.w3.org/2000/svg">
@@ -39,6 +73,24 @@
 	    </g>
 	  </defs>
 	</svg>
-	<script src="/second.bundle.js"></script>
+
+	<svg class="one" viewBox="50 50 355 165">
+		<use xlink:href="#lew-logo-w" class="w"></use>
+		<use xlink:href="#lew-logo-e" class="e"></use>
+		<use xlink:href="#lew-logo-l" class="l"></use>
+	</svg>
+
+	<svg class="two" viewBox="50 50 355 165">
+		<use xlink:href="#lew-logo-w" class="w"></use>
+		<use xlink:href="#lew-logo-e" class="e"></use>
+		<use xlink:href="#lew-logo-l" class="l"></use>
+	</svg>
+
+	<svg class="three" viewBox="50 50 355 165">
+		<use xlink:href="#lew-logo-w" class="w"></use>
+		<use xlink:href="#lew-logo-e" class="e"></use>
+		<use xlink:href="#lew-logo-l" class="l"></use>
+	</svg>
+
 </body>
 </html>

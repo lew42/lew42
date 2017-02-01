@@ -199,9 +199,10 @@ var Grid3 = Section.extend({
 	},
 	addItem: function(arg){
 		// var item = View(arg, function(){
-			var item = PaperTpl(
-				function(){ View.h1().filler("1s"); View.p().filler("2-4s"); }
-			).appendTo(this.$el);
+			var item = PaperTpl(function(){ 
+					View.h3().filler("1s");
+					View.p().filler("2-4s"); 
+				}).appendTo(this.$el);
 		// }).appendTo(this.$el);
 		item.click(function(){
 			item.remove();
@@ -216,7 +217,11 @@ module.exports = Page(function(){
 	Section(function(){
 		this.addClass("global-squeeze-42 paper");
 
-		View.h1(".grid-3")
+		View({tag: "h6"}, "Instructions").addClass("instructions");
+
+		View.p("The words above each grid are buttons, to toggle a class of that name on the grid element.  Each class does something very simple, like add 1 CSS property.  You can inspect the elements to see exactl which properties.")
+
+		View.h3("Single grid")
 
 		Grid3(function(){
 			this.addClass("stack-4rem");
@@ -233,7 +238,7 @@ module.exports = Page(function(){
 		// 	this.addItem();
 		// });
 
-		View.h1(".grid-3 nested 2")
+		View.h3("Nested grids")
 
 		// View(function(){
 		// 	this.addClass("shaded-bg");

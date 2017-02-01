@@ -46,6 +46,12 @@ module.exports = Page(function(){
 			this.addClass("radial");
 			View.h1("This is a Section with Paper");
 			View.p().filler("1-3s");
+			View.h2("And this is an H2 header");
+			View.p().filler("1-3s");
+			View.h3("H3 header right here");
+			View({tag: "h4"}, "H4 pls?")
+			View({tag: "h5"}, "H5 pls?")
+			View({tag: "h6"}, "H6 pls?")
 		});
 	});
 	Section(function(){

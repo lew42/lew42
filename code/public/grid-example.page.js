@@ -200,7 +200,7 @@ var Grid3 = Section.extend({
 	addItem: function(arg){
 		// var item = View(arg, function(){
 			var item = PaperTpl(
-				function(){ View.h1().filler("1s"); View.p().filler("2-4s"); }
+				function(){ View.h3().css("font-size", "1.5em").filler("1s"); View.p().filler("2-4s"); }
 			).appendTo(this.$el);
 		// }).appendTo(this.$el);
 	}

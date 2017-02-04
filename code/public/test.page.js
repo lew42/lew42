@@ -75,33 +75,31 @@ var testPage = module.exports = Page({
 
 	},
 	content: function(){
-		View("Back").click(function(){
-			this.route.parent.activate();
-		}.bind(this));
-		this.addClass("test");
+		// this.addClass("test");
 		var testPage = this;
-		View.h1("test/");
-		this.route.each(function(route){
+
+		View({tag: "section"}, function(){
+			this.addClass("paper");
+	
+			View("Back").click(function(){
+				testPage.route.parent.activate();
+			});
+	
+			View.h1("test");
+	
 			View(function(){
-				this.addClass("flex test-item " + route.part);
-				View(route.part);
-				View.Icon("angle-right");
-				this.click(function(){
-					route.activate();
+				this.addClass("auto-grid");
+				testPage.route.each(function(route){
+					View(function(){
+						this.addClass("flex test-item " + route.part);
+						View(route.part);
+						View.Icon("angle-right");
+						this.click(function(){
+							route.activate();
+						});
+					})
 				});
-			})
+			});
 		});
 	}
 });
-
-/*
-If each .test.js file exports a test page, then we don't need to make one...
-
-Currently, page.route comes from the app's loadPage fn, and the route is just a parentRoute.add("path");
-
-If page.addPage(page) checks page for a string route, it could replace the string with a real route..
-
-
-page.add("route") --> returns new page with route?
-page.add({})
-*/

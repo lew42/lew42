@@ -41,7 +41,7 @@ var files = globule.find("./code/public/**/*entry.js").forEach(function(filePath
 });
 
 module.exports = {
-	devtool: "inline-source-map",
+	// devtool: "inline-source-map",
 	entry: entry,
 	output: {
 		path: "./code/public/",

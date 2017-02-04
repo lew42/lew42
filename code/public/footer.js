@@ -8,13 +8,10 @@ var Filler = View.extend(function(){
 var Footer = module.exports = View.extend({
 	name: "Footer",
 	tag: "footer",
-	addClass: "main",
+	addClass: "main ta-c",
 	content: function(){
 		var app = this.app;
 
-		View(function(){
-			this.addClass("global-squeeze grid basis3");
-			Filler.make(3);
-		});
+		View("© Michael Lewis 2017");
 	}
 });

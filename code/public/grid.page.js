@@ -114,7 +114,7 @@ var Grid3 = Section.extend({
 		// var item = View(arg, function(){
 			var item = PaperTpl(function(){ 
 					View.h3().filler("1s");
-					View.p().filler("2-4s"); 
+					View.p().filler("1-5s"); 
 				}).appendTo(this.$el);
 		// }).appendTo(this.$el);
 		item.click(function(){
@@ -130,14 +130,15 @@ module.exports = Page(function(){
 	Section(function(){
 		this.addClass("global-squeeze-42 paper");
 
-		View({tag: "h6"}, "Instructions").addClass("instructions");
+		View("Use tabs:  Single, Nested, Instructions")
+		// View({tag: "h6"}, "Instructions").addClass("instructions");
 
-		View.p("These instructions should go at the bottom.  And maybe put the nested example on another page, so that it doesn't stack up so high (low).")
+		// View.p("These instructions should go at the bottom.  And maybe put the nested example on another page, so that it doesn't stack up so high (low).")
 
-		View({tag: "ul"}, function(){
-			View({tag: "li"}, "The add button generates a new block with a random amount of filler content");
-			View({tag: "li"}, "The minc-X classes add min-width to all blocks.  This is visualized by the blue line.");
-		});
+		// View({tag: "ul"}, function(){
+		// 	View({tag: "li"}, "The add button generates a new block with a random amount of filler content");
+		// 	View({tag: "li"}, "The minc-X classes add min-width to all blocks.  This is visualized by the blue line.");
+		// });
 
 		View.h3("Single grid")
 

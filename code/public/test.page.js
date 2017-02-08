@@ -5,30 +5,39 @@ var Test = require("test42");
 var TestPage = Page.extend({
 	name: "TestPage",
 	content: function(){
-		View("Back").click(function(){
-			this.route.parent.activate();
-		}.bind(this));
-		View.h1(this.name);
-
+		var pg = this;
 		var route = this.route;
-		View(function(){
-			this.addClass("child-routes");
-			route.each(function(route){
-				View(function(){
-					this.addClass("flex test-item");
-					View(route.part);
-					View.Icon("angle-right");
-					this.click(function(){
-						route.activate();
+		
+		View({tag: "section"}, function(){
+			this.addClass("paper");
+
+			View("Back").click(function(){
+				route.parent.activate();
+			});
+			
+			View.h1(pg.name);
+
+			
+			View(function(){
+				this.addClass("child-routes");
+				route.each(function(route){
+					View(function(){
+						this.addClass("flex test-item");
+						View(route.part);
+						View.Icon("angle-right");
+						this.click(function(){
+							route.activate();
+						});
 					});
 				});
 			});
+			
+			// View("parent: " + this.parent.name);
+			Test.route = pg.route;
+			pg.route.remainder = pg.route.remainder || [];
+			// console.log("TestPage.remainder", this.route.remainder, this.route);
+			pg.req(pg.key);
 		});
-		// View("parent: " + this.parent.name);
-		Test.route = this.route;
-		this.route.remainder = this.route.remainder || [];
-		// console.log("TestPage.remainder", this.route.remainder, this.route);
-		this.req(this.key);
 	}
 });
 
@@ -43,17 +52,28 @@ var fillSparseRoutes = function(route){
 					app: rt.parent.page.app,
 					route: rt,
 					content: function(){
-						View("Back").click(function(){
-							this.route.parent.activate();
-						}.bind(this));
-						View.h1(this.name);
-						this.route.each(function(route){
+						var pg = this;
+						View({tag: "section"}, function(){
+							this.addClass("paper");
+
+							View("Back").click(function(){
+								pg.route.parent.activate();
+							});
+							
+							View.h1(this.name);
+							
+
 							View(function(){
-								this.addClass("flex test-item");
-								View(route.part);
-								View.Icon("angle-right");
-								this.click(function(){
-									route.activate();
+								this.addClass("auto-grid");
+								pg.route.each(function(route){
+									View(function(){
+										this.addClass("flex test-item");
+										View(route.part);
+										View.Icon("angle-right");
+										this.click(function(){
+											route.activate();
+										});
+									});
 								});
 							});
 						});

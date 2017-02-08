@@ -24,13 +24,24 @@ module.exports = Page(function(){
 		View(function(){
 			this.addClass("content-squeeze");
 			View.h1("Michael Lewis");
-			View.p("Some catchy, maybe humorous slogan can go here.  Not sure if anyone will even read this though.  They'll probably just go for a colorful box.").addClass("intro");
+			View.p("This website is powered by a jQuery-based, webpack-bundled, front-end-framework that I built-myself.").addClass("intro");
 		});
 	});
+
+	// Paper(function(){
+	// 	View(function(){
+	// 		this.addClass("content-squeeze");
+
+	// 		View.h3("Maybe this should stay white");
+	// 	});
+	// });
+
 	View(function(){
 		this.addClass("bg-orange");
+
 		View(function(){
 			this.addClass("auto-grid llh");
+
 			View(function(){
 				View.h2("developer")
 			});
@@ -43,21 +54,23 @@ module.exports = Page(function(){
 		});
 	});
 
-	Paper(function(){
-		this.addClass("split");
-		View(function(){
-			this.addClass("auto-grid");
+	View(function(){
+		this.addClass("split-wrap");
+		Paper(function(){
+			this.addClass("split");
 			View(function(){
-				View.h3("Don't try to sell myself");
-				View.p("The second I start putting 'hire me' buttons around my site, it makes me look desperate.  Just add some quality content, and use my email to indicate that I'm looking for work.");
-			});
-			View(function(){
-				View.h3("Help people find their way to what they're looking for");
-				View.p("If it were easy to make websites, developers wouldn't have jobs.  Still, workflow improvements can unlock competitive advantages.  The most significant of which, is that time is money, and a streamlined development process means cost effectiveness.");
+				this.addClass("auto-grid");
+				View(function(){
+					View.h3("It's a work in progress");
+					View.p("So don't look too closely.  I've been fighting to make flexbox work, with mixed results.");
+				});
+				View(function(){
+					View.h3("4k monitors, anyone?");
+					View.p("I really want a monitor with 4k resolution (but I don't have one yet).  What does that mean for responsive web design?");
+				});
 			});
 		});
 	});
-
 
 	Paper(function(){
 		this.addClass("nuts");
@@ -80,6 +93,11 @@ module.exports = Page(function(){
 					View.p().filler("2-3s");
 				});
 				View(function(){
+					View({tag: "img"}).attr("src", "/img/logger.jpg");
+					View.h3("console.log grouping, sourcemaps, line numbers");
+					View.p("This would be much better if I defined view, h1, div, etc...");
+				});
+				View(function(){
 					View({tag: "img"}).attr("src", "/img/forms.jpg");
 					View.h3("Getting LESS to work with webpack");
 					View.p().filler("2-3s");
@@ -93,6 +111,11 @@ module.exports = Page(function(){
 			Section(function(){
 				// this.addClass("auto-grid");
 				View(function(){
+					View({tag: "img"}).attr("src", "/img/obj.jpg");
+					View.h3("JavaScript framework stuff (a lot)");
+					View.p().filler("2-3s");
+				});
+				View(function(){
 					View({tag: "img"}).attr("src", "/img/perspective-panel.jpg");
 					View.h3("Giga and micro layouts");
 					View.p().filler("2-3s");
@@ -100,11 +123,6 @@ module.exports = Page(function(){
 				View(function(){
 					View({tag: "img"}).attr("src", "/img/ih3.jpg");
 					View.h3("Flexbox columns and grids");
-					View.p().filler("2-3s");
-				});
-				View(function(){
-					View({tag: "img"}).attr("src", "/img/obj.jpg");
-					View.h3("JavaScript framework stuff (a lot)");
 					View.p().filler("2-3s");
 				});
 			})

@@ -9,29 +9,6 @@ var extractLESS = new ExtractTextPlugin("styles.css");
 // create an entry point for any file ending in 'entry.js'
 var entry = {};
 
-/*  Examples
-
-Matched files, their entry names, and their output path/filename.bundle.js:
-
-1) ./code/public/entry.js (default entry point)
---> entryName:  ""   // strips "entry.js" and "./code/public", see file search below
---> output.path + entryName + output.filename  ("output" is given to module.exports below)
---> ./code/public/ + "/" + bundle.js
-==> ./code/public/bundle.js
-
-2)  ./code/public/path/to/entry.js
--->  entryName: "/path/to/"
-==> ./code/public/path/to/bundle.js
-
-3)  ./code/public/something.entry.js
--->  entryName: "/something."
-==> ./code/public/something.bundle.js
-
-4) 	./code/public/path/to/something.entry.js
--->  entryName: "/path/to/something."
-==> ./code/public/path/to/something.bundle.js
-
-*/
 var files = globule.find("./code/public/**/*entry.js").forEach(function(filePath){
 	var entryName = filePath
 			.replace("entry.js", "")
@@ -41,7 +18,7 @@ var files = globule.find("./code/public/**/*entry.js").forEach(function(filePath
 });
 
 module.exports = {
-	// devtool: "inline-source-map",
+	devtool: "inline-source-map",
 	entry: entry,
 	output: {
 		path: "./code/public/",

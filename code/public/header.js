@@ -87,6 +87,25 @@ var Header = module.exports = View.extend({
 						View("sitemap").click(function(e){
 							app.sitemap.activate();
 						});
+
+						View(function(){
+							View({tag: "a"}, function(){
+								this.attr("href", "https://github.com/mikelew42")
+								View.Icon("github");
+							});
+							View({tag: "a"}, function(){
+								this.attr("href", "http://stackoverflow.com/users/1015232/mike-lewis")
+								View.Icon("stack-overflow");
+							});
+							View({tag: "a"}, function(){
+								this.attr("href", "https://www.linkedin.com/in/michael-lewis813")
+								View.Icon("linkedin");
+							});
+							View({tag: "a"}, function(){
+								this.attr("href", "https://twitter.com/mlew42")
+								View.Icon("twitter");
+							});
+						});
 					});
 				});
 			}).appendTo("#app").addClass("modal").click(function(){

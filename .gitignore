@@ -3,3 +3,9 @@ node_modules
 .firebaserc
 database.rules.json
 firebase.json
+*.eot
+*.woff2
+*.tff
+*.woff
+*.bundle.js
+bundle.js

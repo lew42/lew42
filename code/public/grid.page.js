@@ -63,93 +63,6 @@ var PaperTpl = Paper.extend(function(){
 	// View.p().filler("2-4s");
 });
 
-var Cols = Section.extend({
-	name: "Cols",
-	addClass: "cols-2",
-	make: function(n, arg){
-		for (var i = 0; i < n; i++){
-			this.addItem(arg);
-		}
-	},
-	main: function(){
-		this.removeClass("cols");
-
-		if (this.doSwitches){
-
-			this.switches = Switches({
-				subject: this,
-				switches: [
-					Switch({ name: "one", removals: "two three four" }),
-					Switch({ name: "two", removals: "one three four" }),
-					Switch({ name: "three", removals: "one two four" }),
-					Switch({ name: "four", removals: "one two three" }),
-
-					Switch({ name: "limit" }),
-					Switch({ name: "break" }),
-				]
-			});
-
-			this.switches.$el.insertBefore(this.$el);
-
-			View("add").addClass("switch").click(function(){
-				this.addItem();
-			}.bind(this)).prependTo(this.switches.$el)
-		}
-
-		this.content();
-	},
-	addItem: function(arg){
-		var item = View(arg, function(){
-			PaperTpl();
-		}).appendTo(this.$el);
-		item.click(function(){
-			item.remove();
-		});
-	}
-});
-
-var Grid = Section.extend({
-	name: "Grid",
-	addClass: "grid-2 naked",
-	removeClass: "grid",
-	make: function(n, arg){
-		for (var i = 0; i < n; i++){
-			this.addItem(arg);
-		}
-	},
-	main: function(){
-		this.removeClass("grid");
-
-		this.switches = Switches({
-			subject: this,
-			switches: [
-				Switch({ name: "one", removals: "two three four" }),
-				Switch({ name: "two", removals: "one three four" }),
-				Switch({ name: "three", removals: "one two four" }),
-				Switch({ name: "four", removals: "one two three" }),
-				
-				Switch({ name: "limit" }),
-				Switch({ name: "space" }),
-				Switch({ name: "pad" }),
-			]
-		});
-
-		this.switches.$el.insertBefore(this.$el);
-
-		View("add").addClass("switch").click(function(){
-			this.addItem();
-		}.bind(this)).prependTo(this.switches.$el)
-
-		this.content();
-	},
-	addItem: function(arg){
-		var item = PaperTpl(arg).appendTo(this.$el);
-		item.click(function(){
-			item.remove();
-		});
-	}
-});
-
 var Grid3 = Section.extend({
 	name: "Grid3",
 	addClass: "grid-3",
@@ -199,9 +112,10 @@ var Grid3 = Section.extend({
 	},
 	addItem: function(arg){
 		// var item = View(arg, function(){
-			var item = PaperTpl(
-				function(){ View.h1().filler("1s"); View.p().filler("2-4s"); }
-			).appendTo(this.$el);
+			var item = PaperTpl(function(){ 
+					View.h3().filler("1s");
+					View.p().filler("1-5s"); 
+				}).appendTo(this.$el);
 		// }).appendTo(this.$el);
 		item.click(function(){
 			item.remove();
@@ -216,7 +130,17 @@ module.exports = Page(function(){
 	Section(function(){
 		this.addClass("global-squeeze-42 paper");
 
-		View.h1(".grid-3")
+		View("Use tabs:  Single, Nested, Instructions")
+		// View({tag: "h6"}, "Instructions").addClass("instructions");
+
+		// View.p("These instructions should go at the bottom.  And maybe put the nested example on another page, so that it doesn't stack up so high (low).")
+
+		// View({tag: "ul"}, function(){
+		// 	View({tag: "li"}, "The add button generates a new block with a random amount of filler content");
+		// 	View({tag: "li"}, "The minc-X classes add min-width to all blocks.  This is visualized by the blue line.");
+		// });
+
+		View.h3("Single grid")
 
 		Grid3(function(){
 			this.addClass("stack-4rem");
@@ -233,7 +157,7 @@ module.exports = Page(function(){
 		// 	this.addItem();
 		// });
 
-		View.h1(".grid-3 nested 2")
+		View.h3("Nested grids")
 
 		// View(function(){
 		// 	this.addClass("shaded-bg");

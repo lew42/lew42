@@ -12,6 +12,8 @@ var $ = window.$ = require("jquery");
 var homepage = require("./homepage");
 var AppView = require("./AppView");
 
+var Header = require("./header.js");
+var Footer = require("./footer.js");
 
 var RouteView = View.extend({
 	name: "RouteView",
@@ -50,36 +52,16 @@ var app = App2({
 		// this.nav = RouteView({
 		// 	route: this.route
 		// }).addClass("nav");
-		var app = this;
-		View.Bar({
-			tag: "header",
-			addClass: "main",
-			content: function(){
-				View("LEW42");
-				View("home").click(function(){
-					app.home.activate();
-				}.bind(this));
-				View("test").click(function(){
-					app.test.activate();
-				}.bind(this));
+		this.removeClass("app app2 page").attr("id", "app").attr("class", null);
 
-				View("tools").click(function(){
-					app.tools.activate();
-				});
-
-				View("grids").click(function(){
-					app.test.view1.grid.route.activate();
-				});
-
-				View("typography").click(function(){
-					app.test.view1.typography.route.activate();
-				});
-
-				View("theme").click(function(){
-					app.test.view1.sandbox.route.activate();
-				});
-			}
+		Header({
+			app: this
 		});
 
+		this.main = View({
+			tag: "main"
+		})
+
+		Footer();
 	}
 });

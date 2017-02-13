@@ -19,7 +19,8 @@ var logo = require("./lew.logo.svg.str.js");
 var $ = require("jquery");
 var $logo = $(logo)
 
-module.exports = Page(function(){
+module.exports = Page({ name: "home" }, function(){
+	var app = this.app;
 	Paper(function(){
 		View(function(){
 			this.addClass("content-squeeze");
@@ -85,6 +86,9 @@ module.exports = Page(function(){
 			Section(function(){
 				// this.addClass("auto-grid");
 				View(function(){
+					this.click(function(){
+						app.logo.activate();
+					});
 					View(function(){
 						this.css("padding", "1rem");
 						$logo.appendTo(this.$el);
@@ -138,12 +142,12 @@ module.exports = Page(function(){
 			View(function(){
 				this.addClass("dark-card");
 
-				View.h3("This has problems at low widths").addClass("orange");
-				View.h3("This also has problems when breaking").addClass("white");
+				View.h3("Employment Status:").addClass("orange");
+				View.h3("Unemployed").addClass("white");
 
-				View.p("But, with a little TLC, it should work pretty well").css("color", "#ccc");
+				// View.p("But, with a little TLC, it should work pretty well").css("color", "#ccc");
 
-				View("Button in orange, text in white").addClass("btn");
+				// View("Button in orange, text in white").addClass("btn");
 			});
 
 			View(function(){
@@ -151,11 +155,11 @@ module.exports = Page(function(){
 
 				View(function(){
 					this.addClass("inner");
-					View.h3("This is a really important question, and if it gets long enough, I should put a max-width on the .inner container, to prevent it from growing ridiculously wide at 1600+ px?");
+					View.h3("The best decision you'll ever make.");
 
 					View(function(){
 						this.addClass("tar");
-						View("Call to action").addClass("cta");
+						View("Hire me &nbsp;&nbsp;", View.Icon("angle-right").removeClass("fa-fw")).addClass("cta");
 					});
 				});
 

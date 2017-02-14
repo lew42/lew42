@@ -12,6 +12,7 @@ var Footer = module.exports = View.extend({
 	content: function(){
 		var app = this.app;
 
-		View("© Michael Lewis 2017");
+		View("Designed and developed with love and tears.");
+			View("© Michael Lewis 2017");
 	}
 });

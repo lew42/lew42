@@ -1,3 +1,9 @@
+var Promise = require("promise-polyfill");
+
+if (!window.Promise){
+	window.Promise = Promise;
+}
+
 var App = require("app42");
 var App2 = require("app42/App2");
 var View = require("view42");

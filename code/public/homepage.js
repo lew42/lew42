@@ -24,7 +24,7 @@ module.exports = Page({ name: "home" }, function(){
 	Paper(function(){
 		View(function(){
 			this.addClass("content-squeeze");
-			View.h1("Michael Lewis");
+			View.h1("lew42");
 			View.p("This website is powered by a jQuery-based, webpack-bundled, front-end-framework that I built-myself.").addClass("intro");
 		});
 	});
@@ -44,13 +44,13 @@ module.exports = Page({ name: "home" }, function(){
 			this.addClass("auto-grid llh");
 
 			View(function(){
-				View.h2("developer")
+				View.h2("easy")
 			});
 			View(function(){
-				View.h2("designer");
+				View.h2("peasy");
 			});
 			View(function(){
-				View.h2("dad");
+				View.h2("framework");
 			});
 		});
 	});
@@ -76,60 +76,13 @@ module.exports = Page({ name: "home" }, function(){
 	Paper(function(){
 		this.addClass("nuts");
 		View(function(){
-			this.addClass("content-squeeze ta-c")
-			View.h3("The Nuts").addClass("tt-u");
-			View.p("Sort these into an ordered grid of the most important things I should be showcasing.");
-		});
-
-		Section(function(){
-			this.addClass("auto-grid");
-			Section(function(){
-				// this.addClass("auto-grid");
-				View(function(){
-					this.click(function(){
-						app.logo.activate();
-					});
-					View(function(){
-						this.css("padding", "1rem");
-						$logo.appendTo(this.$el);
-					});
-					View.h3("My Fucking SVG Logo");
-					View.p().filler("2-3s");
-				});
-				View(function(){
-					View({tag: "img"}).attr("src", "/img/logger.jpg");
-					View.h3("console.log grouping, sourcemaps, line numbers");
-					View.p("This would be much better if I defined view, h1, div, etc...");
-				});
-				View(function(){
-					View({tag: "img"}).attr("src", "/img/forms.jpg");
-					View.h3("Getting LESS to work with webpack");
-					View.p().filler("2-3s");
-				});
-				View(function(){
-					View({tag: "img"}).attr("src", "/img/aecircles.gif");
-					View.h3("The view sandbox.");
-					View.p("This would be much better if I defined view, h1, div, etc...");
-				});
-			})
-			Section(function(){
-				// this.addClass("auto-grid");
-				View(function(){
-					View({tag: "img"}).attr("src", "/img/obj.jpg");
-					View.h3("JavaScript framework stuff (a lot)");
-					View.p().filler("2-3s");
-				});
-				View(function(){
-					View({tag: "img"}).attr("src", "/img/perspective-panel.jpg");
-					View.h3("Giga and micro layouts");
-					View.p().filler("2-3s");
-				});
-				View(function(){
-					View({tag: "img"}).attr("src", "/img/ih3.jpg");
-					View.h3("Flexbox columns and grids");
-					View.p().filler("2-3s");
-				});
-			})
+			this.addClass("content-squeeze")
+			View.h3("TODO").addClass("tt-u ta-c");
+			View.Ul(function(){
+				View.Li("Build a proper TODO system, version controlled and everything");
+				View.Li("Just writing a list might be enough..");
+				View.Li("Move track inside a real .config fn.  Base and BasicMods don't need to be tracked...  Having a real .track method that can be overridden will be helpful for displaying new modules.");
+			});
 		});
 	});
 

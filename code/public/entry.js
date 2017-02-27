@@ -37,5 +37,19 @@ var app = App2({
 		this.main = View.Main();
 
 		Footer();
+
+		this.adminPanel = View(function(){
+			View.Item({
+				icon: "cubes",
+				label: "ADMIN",
+				btn: "close",
+				behaviors: function(){
+					this.btn.click(function(){
+						app.adminPanel.hide();
+					});
+				}
+			});
+			this.contents = View().addClass("contents");
+		}).addClass("admin-panel").appendTo("body");
 	}
 });

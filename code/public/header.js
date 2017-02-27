@@ -81,6 +81,9 @@ var Header = module.exports = View.extend({
 
 					View({tag: "nav"}, function(){
 						View.Icon("close");
+						View("admin").click(function(e){
+							app.adminPanel.show();
+						});
 						View("test").click(function(e){
 							app.test.activate();
 						});	

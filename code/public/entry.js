@@ -33,13 +33,13 @@ var app = App2({
 		var app = this;
 		this.removeClass("app app2 page").attr("id", "app").attr("class", null);
 
-		this.logr("hmm?");
+		this.log("hmm?");
 
 		Header({
 			app: this
 		});
 
-		this.main = View.Main();
+		this.mainer = View.Main();
 
 		Footer();
 
@@ -52,17 +52,26 @@ var app = App2({
 					this.btn.click(function(){
 						app.adminPanel.hide();
 					});
+					this.icon.click(function(){
+						app.adminPanel.toggleClass("fullscreen");
+					});
 				}
 			});
 			this.contents = View(function(){
-				// console.log("rendering global logger", app.logr.id);
-				app.logr.render();
-				// console.log("rendered global logger", app.logr.id);
+				app.log.logger.appLogger = true;
+				app.log.logger.label = "app-logger";
+				app.log.render();
 			}).addClass("contents");
 		}).addClass("admin-panel").appendTo("body");
-	},
-	logr: Logger()
+	}
 });
 
-app.logr.becomeCaptor();
-app.logr.assignedTo(app, 'logr');
+var track = require("track42");
+track.app = app;
+
+app.log.logger.becomeCaptor();
+
+
+$(function(){
+	app.log("document.ready");
+});

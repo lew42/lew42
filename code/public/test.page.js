@@ -34,6 +34,7 @@ var TestPage = Page.extend({
 			
 			// View("parent: " + this.parent.name);
 			Test.route = pg.route;
+			Test.app = pg.app;
 			pg.route.remainder = pg.route.remainder || [];
 			// console.log("TestPage.remainder", this.route.remainder, this.route);
 			pg.req(pg.key);

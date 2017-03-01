@@ -64,4 +64,5 @@ var app = App2({
 	logr: Logger()
 });
 
+app.logr.becomeCaptor();
 app.logr.assignedTo(app, 'logr');

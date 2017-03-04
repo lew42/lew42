@@ -497,7 +497,11 @@ footer.main {
 		.label {
 			flex-grow: 1;
 		}
+		&, & > * {
+			.bga-dark(0.05);
+		}
 		> * {
+			.sep;
 			padding: 0.25em 0.5em;
 		}
 	}
@@ -509,5 +513,20 @@ footer.main {
 		> .header .icon {
 			color: red;
 		}
+	}
+}
+
+.mod5View {
+	font-size: 0.8em;
+	> .bar {
+		> .name {}
+		> .class { flex: 1; .r-sep; padding-left: 0; font-style: italic; color: #777;}
+		> .id { .sep; }
+	}
+}
+
+.propView {
+	> .name {
+		flex: 1;
 	}
 }

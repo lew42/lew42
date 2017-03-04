@@ -3,13 +3,20 @@ var Promise = require("promise-polyfill");
 if (!window.Promise){
 	window.Promise = Promise;
 }
+var Logger = require("log42/v1");
+var log = window.log = Logger({
+	adopt: false,
+	globalLogger: true,
+});
+log.becomeCaptor();
+log.group("entry.js", function(){
+
 
 var App = require("app42");
 var App2 = require("app42/App2");
-var View = require("view42");
+var View = require("view42/v8");
 var Cols = require("grid").Cols;
 
-var Logger = require("log42/v1");
 
 // require("less42"); // if you want better control over order - don't just suck it all in at once...
 // we can @import it in pieces, within styles.less
@@ -44,10 +51,11 @@ var app = App2({
 		Footer();
 
 		this.adminPanel = View(function(){
-			View.Item({
-				icon: "cubes",
-				label: "ADMIN",
-				btn: "close",
+			View({
+				content: function(){
+					this.btn = View("close");
+					this.icon = View("full");
+				},
 				behaviors: function(){
 					this.btn.click(function(){
 						app.adminPanel.hide();
@@ -60,7 +68,7 @@ var app = App2({
 			this.contents = View(function(){
 				app.log.logger.appLogger = true;
 				app.log.logger.label = "app-logger";
-				app.log.render();
+				log.render(true);
 			}).addClass("contents");
 		}).addClass("admin-panel").appendTo("body");
 	}
@@ -69,9 +77,11 @@ var app = App2({
 var track = require("track42");
 track.app = app;
 
-app.log.logger.becomeCaptor();
+// app.log.logger.becomeCaptor();
 
 
 $(function(){
 	app.log("document.ready");
+});
+
 });

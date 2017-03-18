@@ -41,8 +41,6 @@ var app = App2({
 		var app = this;
 		this.removeClass("app app2 page").attr("id", "app").attr("class", null);
 
-		this.log("hmm?");
-
 		Header({
 			app: this
 		});
@@ -83,8 +81,8 @@ track.app = app;
 // app.log.logger.becomeCaptor();
 
 
-$(function(){
-	app.log("document.ready");
-});
+// $(function(){
+// 	app.log("document.ready");
+// });
 
 });
